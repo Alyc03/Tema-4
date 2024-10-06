@@ -15,8 +15,8 @@
     <label for="confirm">Confirm Password: </label>
     <input type="text" placeholder="Confirm Password" id="confirmare"><br><br>
     <button onclick="save()">ADD</button><br><br>
-    <button>Print</button><br><br>
-    <button>Make Select</button>
+    <button disabled id="print" >Print</button><br><br>
+    <button disabled id="select">Make Select</button>
 </div>
 
 <script>
@@ -24,12 +24,26 @@
     function save(){
         let email = document.getElementById("email").value
         let parola = document.getElementById("parola").value
-        let confirmare = document.getElementById("confirmare").value
-        experiment[experiment.length] = {email:email, parola:parola, confirmare_parola:confirmare
-        }
+        let confirmare_parola = document.getElementById("confirmare").value
+        experiment[experiment.length] = {email,parola,confirmare_parola}
         console.log(experiment)
-        console.log(experiment.length)
+       // console.log(experiment.length)
     }
+
+        if(experiment.length <= 5) {
+            document.getElementById("print").disabled = true
+            document.getElementById("select").disabled = true
+            console.log("true")
+        }
+        else {
+            document.getElementById("print").disabled = false
+            document.getElementById("select").disabled = false
+            console.log("false")
+        }
+
+      for ( let i = 0; i<experiment.length; i=i+1){
+        console.log(experiment[i])
+      }
 </script>
 </body>
 </html>
