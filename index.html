@@ -14,7 +14,7 @@
     <input type="text" placeholder="Password" id="parola"><br><br>
     <label for="confirm">Confirm Password: </label>
     <input type="text" placeholder="Confirm Password" id="confirmare"><br><br>
-    <button onclick="save()">ADD</button><br><br>
+    <button onclick="save(), hide()">ADD</button><br><br>
     <button disabled id="print" >Print</button><br><br>
     <button disabled id="select">Make Select</button>
 </div>
@@ -27,10 +27,10 @@
         let confirmare_parola = document.getElementById("confirmare").value
         experiment[experiment.length] = {email,parola,confirmare_parola}
         console.log(experiment)
-       // console.log(experiment.length)
+        console.log(experiment.length)
     }
-
-        if(experiment.length <= 5) {
+    function hide(){
+        if(experiment.length < 5) {
             document.getElementById("print").disabled = true
             document.getElementById("select").disabled = true
             console.log("true")
@@ -40,10 +40,7 @@
             document.getElementById("select").disabled = false
             console.log("false")
         }
-
-      for ( let i = 0; i<experiment.length; i=i+1){
-        console.log(experiment[i])
-      }
+    }
 </script>
 </body>
 </html>
