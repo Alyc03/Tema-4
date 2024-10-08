@@ -15,8 +15,8 @@
     <label for="confirm">Confirm Password: </label>
     <input type="text" placeholder="Confirm Password" id="confirmare"><br><br>
     <button onclick="save(), hide()">ADD</button><br><br>
-    <button disabled id="print" >Print</button><br><br>
-    <button disabled id="select">Make Select</button>
+    <button hidden id="print" >Print</button><br><br>
+    <button hidden id="select">Make Select</button>
 </div>
 
 <script>
@@ -31,14 +31,12 @@
     }
     function hide(){
         if(experiment.length < 5) {
-            document.getElementById("print").disabled = true
-            document.getElementById("select").disabled = true
-            console.log("true")
+            document.getElementById("print").hidden = true
+            document.getElementById("select").hidden = true
         }
         else {
-            document.getElementById("print").disabled = false
-            document.getElementById("select").disabled = false
-            console.log("false")
+            document.getElementById("print").hidden = false
+            document.getElementById("select").hidden = false
         }
     }
 </script>
