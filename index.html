@@ -14,9 +14,11 @@
     <input type="text" placeholder="Password" id="parola"><br><br>
     <label for="confirm">Confirm Password: </label>
     <input type="text" placeholder="Confirm Password" id="confirmare"><br><br>
-    <button onclick="save(), hide()">ADD</button><br><br>
-    <button hidden id="print" >Print</button><br><br>
-    <button hidden id="select">Make Select</button>
+    <button onclick="save(),reset(), hide()">ADD</button><br><br>
+    <button onclick="print()" hidden id="print" >Print</button><br><br>
+    <button onclick="makeselect()" hidden id="select">Make Select</button><br><br>
+    <select hidden name="makeselect" id="makeselect">
+
 </div>
 
 <script>
@@ -26,8 +28,6 @@
         let parola = document.getElementById("parola").value
         let confirmare_parola = document.getElementById("confirmare").value
         experiment[experiment.length] = {email,parola,confirmare_parola}
-        console.log(experiment)
-        console.log(experiment.length)
     }
     function hide(){
         if(experiment.length < 5) {
@@ -38,6 +38,27 @@
             document.getElementById("print").hidden = false
             document.getElementById("select").hidden = false
         }
+    }
+    function reset() {
+        document.getElementById("email").value = ""
+        document.getElementById("parola").value = ""
+        document.getElementById("confirmare").value = ""
+    }
+    function print(){
+        console.log(experiment)
+    }
+    function makeselect(){
+        
+        let makeselect = document.getElementById("makeselect")
+        makeselect.innerHTML = ''
+
+        for(i = 0 ; i < experiment.length; i++){
+            let option = document.createElement("option")
+            option.value = experiment[i]
+            option.textContent = experiment[i].email
+            makeselect.appendChild(option)
+        }
+        document.getElementById("makeselect").hidden = false
     }
 </script>
 </body>
