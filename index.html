@@ -52,7 +52,7 @@
         let makeselect = document.getElementById("makeselect")
         makeselect.innerHTML = ''
 
-        for(i = 0 ; i < experiment.length; i++){
+        for(i = 0 ; i < experiment.length; i = i + 1){
             let option = document.createElement("option")
             option.value = experiment[i]
             option.textContent = experiment[i].email
